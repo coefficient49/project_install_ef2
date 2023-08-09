@@ -32,3 +32,9 @@ pip install -q git+https://github.com/sokrypton/esm.git@beta
 # wait for Params to finish downloading...
 
 aria2c -q -x 16 https://files.ipd.uw.edu/pub/esmfold/esmfold.model
+
+sudo apt install unzip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
