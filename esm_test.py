@@ -100,7 +100,7 @@ def fix_sequence(jobname = "test",
                                 num_recycles=num_recycles,
                                 chain_linker="X"*chain_linker,
                                 residue_index_offset=512,
-                                mask_rate=mask_rate,
+                                # mask_rate=mask_rate,
                                 return_contacts=get_LM_contacts)
             
             pdb_str = model.output_to_pdb(output)[0]
