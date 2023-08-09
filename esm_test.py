@@ -36,12 +36,12 @@ jobname = re.sub(r'\W+', '', jobname)[:50]
 
 def fix_sequence(jobname = "test",
                  sequence = "GWSTELEKHREELKEFLKKEGITNVEIRIDNGRLEVRVEGGTERLKRFLEELRQKLEKKGYTVDIKIE",
-                num_recycles = 3, #@param ["0", "1", "2", "3", "6", "12"] {type:"raw"}
+                num_recycles = 6, #@param ["0", "1", "2", "3", "6", "12"] {type:"raw"}
                 get_LM_contacts = False, #@param {type:"boolean"}):  #@param {type:"string"}
                 #for homo_oligomer
                 copies = 1, #@param {type:"integer"} 
                 chain_linker = 25, #@param {type:"number"}
-                samples = None, #@param ["None", "1", "4", "8", "16", "32", "64"] {type:"raw"}
+                samples = 8, #@param ["None", "1", "4", "8", "16", "32", "64"] {type:"raw"}
                 masking_rate = 0.15, #@param {type:"number"}
                 stochastic_mode = "LM", #@param ["LM", "LM_SM", "SM"]
                 ):
