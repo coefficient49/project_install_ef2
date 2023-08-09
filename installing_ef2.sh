@@ -13,31 +13,9 @@ rm Miniconda3-latest-Linux-x86_64.sh
 
 export PATH="${CONDAFOLDDIR}/conda/condabin:${PATH}"
 eval "$(conda shell.bash hook)"
-conda create -p $CONDAFOLDDIR/colabfold-conda python=3.10 -y
-conda activate $CONDAFOLDDIR/colabfold-conda
+conda create -p $CONDAFOLDDIR/esmfold-conda python=3.10 -y
+conda activate $CONDAFOLDDIR/esmfold-conda
 conda update -n base conda -y
-
-aria2c -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model
-
-# install libs
-pip install  omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
-pip install  git+https://github.com/NVIDIA/dllogger.git"
-
-# install openfold
-commit=6908936b68ae89f67755240e2f588c09ec31d4c8
-pip install  git+https://github.com/aqlaboratory/openfold.git@$commit
-
-
-pip install  git+https://github.com/sokrypton/esm.git@beta
-
-# wait for Params to finish downloading...
-
-aria2c -x 16 https://files.ipd.uw.edu/pub/esmfold/esmfold.model
-
-
-## 
-pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install matplotlib torch
 
 sudo apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
