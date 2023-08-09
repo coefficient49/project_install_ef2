@@ -16,7 +16,7 @@ conda create -p $CONDAFOLDDIR/colabfold-conda python=3.10 -y
 conda activate $CONDAFOLDDIR/colabfold-conda
 conda update -n base conda -y
 
-aria2c -q -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model &
+aria2c -q -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model
 
 # install libs
 pip install  omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
@@ -31,7 +31,7 @@ pip install  git+https://github.com/sokrypton/esm.git@beta
 
 # wait for Params to finish downloading...
 
-aria2c -q -x 16 https://files.ipd.uw.edu/pub/esmfold/esmfold.model
+aria2c -x 16 https://files.ipd.uw.edu/pub/esmfold/esmfold.model
 
 sudo apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
