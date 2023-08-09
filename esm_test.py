@@ -19,9 +19,9 @@ def parse_output(output):
        "plddt":plddt[mask],
        "sm_contacts":sm_contacts[mask,:][:,mask],
        "xyz":xyz[mask]}
-  if "contacts" in output["lm_output"]:
-    lm_contacts = output["lm_output"]["contacts"].astype(float)[0]
-    o["lm_contacts"] = lm_contacts[mask,:][:,mask]
+  # if "contacts" in output["lm_output"]:
+  #   lm_contacts = output["lm_output"]["contacts"].astype(float)[0]
+  #   o["lm_contacts"] = lm_contacts[mask,:][:,mask]
   return o
 
 def get_hash(x): 
