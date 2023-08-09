@@ -86,7 +86,7 @@ def fix_sequence(jobname = "test",
         traj = []
     
         num_samples = 1 if samples is None else samples
-        for seed in range(num_samples):
+        for seed in tqdm(range(num_samples)):
             torch.cuda.empty_cache()
             if samples is None:
                 seed = "default"
