@@ -6,7 +6,7 @@ CONDAFOLDDIR="${CURRENTPATH}/esmfold"
 
 mkdir -p ${CONDAFOLDDIR}
 #!/usr/bin/bash
-cd ${CONDAFOLDDIR}
+
 wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh -b -p ${CONDAFOLDDIR}/conda
 rm Miniconda3-latest-Linux-x86_64.sh
