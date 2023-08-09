@@ -96,31 +96,31 @@ def fix_sequence(jobname = "test",
                 mask_rate = masking_rate if "LM" in stochastic_mode else 0.0
                 model.train("SM" in stochastic_mode)
     
-        output = model.infer(sequence,
-                            num_recycles=num_recycles,
-                            chain_linker="X"*chain_linker,
-                            residue_index_offset=512,
-                            mask_rate=mask_rate,
-                            return_contacts=get_LM_contacts)
-        
-        pdb_str = model.output_to_pdb(output)[0]
-        output = tree_map(lambda x: x.cpu().numpy(), output)
-        ptm = output["ptm"][0]
-        plddt = output["plddt"][0,:,1].mean()
-        traj.append(parse_output(output))
-        print(f'{seed} ptm: {ptm:.3f} plddt: {plddt:.1f}')
-        if ptm > best_ptm:
-            best_pdb_str = pdb_str
-            best_ptm = ptm
-            best_output = output
-        os.system(f"mkdir -p {ID}")
-        if samples is None:
-            pdb_filename = f"{ID}/ptm{ptm:.3f}_r{num_recycles}_{seed}.pdb"
-        else:
-            pdb_filename = f"{ID}/ptm{ptm:.3f}_r{num_recycles}_seed{seed}_{stochastic_mode}_m{masking_rate:.2f}.pdb"
-    
-        with open(pdb_filename,"w") as out:
-            out.write(pdb_str)
+            output = model.infer(sequence,
+                                num_recycles=num_recycles,
+                                chain_linker="X"*chain_linker,
+                                residue_index_offset=512,
+                                mask_rate=mask_rate,
+                                return_contacts=get_LM_contacts)
+            
+            pdb_str = model.output_to_pdb(output)[0]
+            output = tree_map(lambda x: x.cpu().numpy(), output)
+            ptm = output["ptm"][0]
+            plddt = output["plddt"][0,:,1].mean()
+            traj.append(parse_output(output))
+            print(f'{seed} ptm: {ptm:.3f} plddt: {plddt:.1f}')
+            if ptm > best_ptm:
+                best_pdb_str = pdb_str
+                best_ptm = ptm
+                best_output = output
+            os.system(f"mkdir -p {ID}")
+            if samples is None:
+                pdb_filename = f"{ID}/ptm{ptm:.3f}_r{num_recycles}_{seed}.pdb"
+            else:
+                pdb_filename = f"{ID}/ptm{ptm:.3f}_r{num_recycles}_seed{seed}_{stochastic_mode}_m{masking_rate:.2f}.pdb"
+            
+            with open(pdb_filename,"w") as out:
+                out.write(pdb_str)
 
 
 if __name__ == "__main__":
