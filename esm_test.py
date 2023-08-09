@@ -86,15 +86,15 @@ def fix_sequence(jobname = "test",
 
     num_samples = 1 if samples is None else samples
     for seed in range(num_samples):
-    torch.cuda.empty_cache()
-    if samples is None:
-        seed = "default"
-        mask_rate = 0.0
-        model.train(False)
-    else:
-        torch.manual_seed(seed)
-        mask_rate = masking_rate if "LM" in stochastic_mode else 0.0
-        model.train("SM" in stochastic_mode)
+        torch.cuda.empty_cache()
+        if samples is None:
+            seed = "default"
+            mask_rate = 0.0
+            model.train(False)
+        else:
+            torch.manual_seed(seed)
+            mask_rate = masking_rate if "LM" in stochastic_mode else 0.0
+            model.train("SM" in stochastic_mode)
 
     output = model.infer(sequence,
                         num_recycles=num_recycles,
