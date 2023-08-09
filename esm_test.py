@@ -4,6 +4,7 @@ import numpy as np
 from jax.tree_util import tree_map
 import matplotlib.pyplot as plt
 from scipy.special import softmax
+from tqdm.auto import tqdm
 
 def parse_output(output):
   pae = (output["aligned_confidence_probs"][0] * np.arange(64)).mean(-1) * 31
@@ -99,9 +100,9 @@ def fix_sequence(jobname = "test",
             output = model.infer(sequence,
                                 num_recycles=num_recycles,
                                 chain_linker="X"*chain_linker,
-                                residue_index_offset=512,
+                                residue_index_offset=512)
                                 # mask_rate=mask_rate,
-                                return_contacts=get_LM_contacts)
+                                # return_contacts=get_LM_contacts)
             
             pdb_str = model.output_to_pdb(output)[0]
             output = tree_map(lambda x: x.cpu().numpy(), output)
