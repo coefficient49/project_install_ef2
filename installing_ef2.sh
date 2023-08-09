@@ -16,7 +16,7 @@ conda create -p $CONDAFOLDDIR/colabfold-conda python=3.10 -y
 conda activate $CONDAFOLDDIR/colabfold-conda
 conda update -n base conda -y
 
-aria2c -q -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model
+aria2c -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model
 
 # install libs
 pip install  omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
