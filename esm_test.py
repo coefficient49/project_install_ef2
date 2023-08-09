@@ -121,3 +121,7 @@ def fix_sequence(jobname = "test",
     
         with open(pdb_filename,"w") as out:
             out.write(pdb_str)
+
+
+if __name__ == "__main__":
+  fix_sequence()
