@@ -34,3 +34,4 @@ dependencies:
       - pytorch_lightning==1.5.10
       - wandb==0.12.21
       - git+https://github.com/NVIDIA/dllogger.git
+prefix: ~/esmfold
