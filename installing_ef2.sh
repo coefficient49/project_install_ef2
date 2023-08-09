@@ -36,7 +36,7 @@ aria2c -x 16 https://files.ipd.uw.edu/pub/esmfold/esmfold.model
 
 ## 
 pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install matplotlib
+pip install matplotlib torch
 
 sudo apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
