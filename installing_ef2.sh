@@ -10,8 +10,9 @@ mkdir -p ${CONDAFOLDDIR}
 wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh -b -p ${CONDAFOLDDIR}/conda
 rm Miniconda3-latest-Linux-x86_64.sh
-. "${CONDAFOLDDIR}/conda/etc/profile.d/conda.sh"
+
 export PATH="${CONDAFOLDDIR}/conda/condabin:${PATH}"
+eval "$(conda shell.bash hook)"
 conda create -p $CONDAFOLDDIR/colabfold-conda python=3.10 -y
 conda activate $CONDAFOLDDIR/colabfold-conda
 conda update -n base conda -y
