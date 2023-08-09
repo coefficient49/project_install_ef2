@@ -24,7 +24,7 @@ pip install  omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
 pip install  git+https://github.com/NVIDIA/dllogger.git"
 
 # install openfold
-commit="6908936b68ae89f67755240e2f588c09ec31d4c8"
+commit=6908936b68ae89f67755240e2f588c09ec31d4c8
 pip install  git+https://github.com/aqlaboratory/openfold.git@$commit
 
 
