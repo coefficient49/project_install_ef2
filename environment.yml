@@ -1,4 +1,5 @@
-prefix: ~/esmfold
+prefix: ~/esmfold-conda
+name: esmfold-conda
 channels:
   - conda-forge
   - bioconda
