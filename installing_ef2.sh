@@ -13,7 +13,7 @@ rm Miniconda3-latest-Linux-x86_64.sh
 
 export PATH="${CONDAFOLDDIR}/conda/condabin:${PATH}"
 eval "$(conda shell.bash hook)"
-conda create -n esmfold-conda -f environment.yml
+conda create -p ./esmfold-conda -f environment.yml
 #conda activate esmfold
 
 
