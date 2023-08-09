@@ -19,15 +19,15 @@ conda update -n base conda -y
 aria2c -q -x 16 https://colabfold.steineggerlab.workers.dev/esm/esmfold.model &
 
 # install libs
-pip install -q omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
-pip install -q git+https://github.com/NVIDIA/dllogger.git"
+pip install  omegaconf pytorch_lightning biopython ml_collections einops py3Dmol
+pip install  git+https://github.com/NVIDIA/dllogger.git"
 
 # install openfold
 commit = "6908936b68ae89f67755240e2f588c09ec31d4c8"
-pip install -q git+https://github.com/aqlaboratory/openfold.git@$commit
+pip install  git+https://github.com/aqlaboratory/openfold.git@$commit
 
 
-pip install -q git+https://github.com/sokrypton/esm.git@beta
+pip install  git+https://github.com/sokrypton/esm.git@beta
 
 # wait for Params to finish downloading...
 
