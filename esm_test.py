@@ -19,9 +19,9 @@ def parse_output(output):
        "plddt":plddt[mask],
        "sm_contacts":sm_contacts[mask,:][:,mask],
        "xyz":xyz[mask]}
-  # if "contacts" in output["lm_output"]:
-  #   lm_contacts = output["lm_output"]["contacts"].astype(float)[0]
-  #   o["lm_contacts"] = lm_contacts[mask,:][:,mask]
+  if "contacts" in output["lm_output"]:
+    lm_contacts = output["lm_output"]["contacts"].astype(float)[0]
+    o["lm_contacts"] = lm_contacts[mask,:][:,mask]
   return o
 
 def get_hash(x): 
@@ -100,9 +100,9 @@ def fix_sequence(jobname = "test",
             output = model.infer(sequence,
                                 num_recycles=num_recycles,
                                 chain_linker="X"*chain_linker,
-                                residue_index_offset=512)
-                                # mask_rate=mask_rate,
-                                # return_contacts=get_LM_contacts)
+                                residue_index_offset=512,
+                                mask_rate=mask_rate,
+                                return_contacts=get_LM_contacts)
             
             pdb_str = model.output_to_pdb(output)[0]
             output = tree_map(lambda x: x.cpu().numpy(), output)
