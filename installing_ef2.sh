@@ -21,6 +21,14 @@ pip install "fair-esm[esmfold]"
 pip install 'dllogger @ git+https://github.com/NVIDIA/dllogger.git'
 pip install 'openfold @ git+https://github.com/aqlaboratory/openfold.git@4b41059694619831a7db195b7e0988fc4ff3a307'
 pip install tqdm
+git clone -b beta https://github.com/sokrypton/esm.git
+cd ./esm
+
+pip install .
+
+cd ..
+
+
 
 sudo apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
