@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy.special import softmax
 from tqdm.auto import tqdm
 from pathlib import Path
+import pickle
 
 def parse_output(output):
   pae = (output["aligned_confidence_probs"][0] * np.arange(64)).mean(-1) * 31
@@ -126,6 +127,8 @@ def fix_sequence(jobname = "test",
             
             with open(pdb_filename,"w") as out:
                 out.write(pdb_str)
+            with open(pdb_filename.replace(".pdb",".pickle"),"wb") as out:
+                pickle.dump(output)
 
 def get_args():
 
@@ -167,7 +170,7 @@ def get_args():
       "-s",
       "--samples",
       dest="samples",
-      default=1,
+      default=8,
       choices=[1,4,8,16,32,64],
       type=int
   )
