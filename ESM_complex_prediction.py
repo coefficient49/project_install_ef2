@@ -185,7 +185,7 @@ def get_args():
       "--stochastic_mode",
       dest="stochastic_mode",
       default="LM",
-      choices=["LM", "LM_SM", "SM"]
+      choices=["LM", "LM_SM", "SM"],
       type=str
   )
 
