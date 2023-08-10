@@ -11,3 +11,8 @@ for installation
 source  installing_ef2.sh
 ```
 
+to activate environment:
+
+```
+source init_env.profile
+```
