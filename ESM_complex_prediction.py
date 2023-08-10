@@ -192,7 +192,7 @@ def get_args():
 
 
   parser.add_argument(
-      "-f",
+      "-o",
       "--out",
       default="default",
       dest="out"
