@@ -85,9 +85,7 @@ def fix_sequence(jobname = "test",
 
     # optimized for Tesla T4
     if length >= 1200:
-      model.to("cpu")
-    elif 700 >= length > 1200:
-      model.trunk.set_chunk_size(32) 
+      model.trunk.set_chunk_size(64) 
     else:
       model.trunk.set_chunk_size(128)
 
