@@ -82,8 +82,14 @@ def fix_sequence(jobname = "test",
         model.cuda().requires_grad_(False)
     
         # optimized for Tesla T4
-        if length > 700:
-          model.trunk.set_chunk_size(16)
+        if length >= 1200:
+          device = torch.device("cpu")
+          model.esm = model.esm.float()
+          model = model.to(device)
+          model.requires_grad_(False)
+          model.trunk.set_chunk_size(64)
+        elif 700 >= length > 1200:
+          model.trunk.set_chunk_size(64) 
         else:
           model.trunk.set_chunk_size(128)
     
