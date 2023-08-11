@@ -220,8 +220,9 @@ if __name__ == "__main__":
   else:
      fasta_p = Path(outdir).with_suffix("")
 
-  if fasta_p.is_dir():
+  if not fasta_p.is_dir():
     fasta_p.mkdir(parents=True)
+    print(f"making folder {fasta_p}")
   outdir = str(fasta_p)
 
   seq = [x.sequence for x in dnaio.FastaReader(fasta)]
