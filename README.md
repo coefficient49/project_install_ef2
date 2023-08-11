@@ -22,5 +22,6 @@ to run the pipeline
 ```
 cd ~
 rm iter_run_.log
+
 screen -d -m -L -Logfile iter_run_.log bash ~/project_install_ef2/iter_runs.sh
 ```
