@@ -76,15 +76,16 @@ def fix_sequence(jobname = "test",
     else: mode = "hetero"
     
     model = torch.load("esmfold.model")
-    model = model.half()
+    # model = model.half()
     # model.esm = model.esm.half()
     # torch.backends.cuda.matmul.allow_tf32 = True
     # model.cuda().half()
     model.cuda().requires_grad_(False)
+    
 
     # optimized for Tesla T4
     if length >= 1200:
-      model.trunk.set_chunk_size(8)
+      model.to("cpu")
     elif 700 >= length > 1200:
       model.trunk.set_chunk_size(32) 
     else:
