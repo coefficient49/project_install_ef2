@@ -13,7 +13,7 @@ rm Miniconda3-latest-Linux-x86_64.sh
 
 export PATH="${CONDAFOLDDIR}/conda/condabin:${PATH}"
 eval "$(conda shell.bash hook)"
-conda env create -f environment.yml
+conda env create -f ./project_install_ef2/environment.yml
 #conda activate esmfold
 conda activate esmfold-conda
 pip install "fair-esm[esmfold]"
