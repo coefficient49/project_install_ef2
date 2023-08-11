@@ -76,7 +76,7 @@ def fix_sequence(jobname = "test",
     if "model" not in dir():
         import torch
         model = torch.load("esmfold.model")
-        model = model.half()
+        # model = model.half()
         model.esm = model.esm.half()
         torch.backends.cuda.matmul.allow_tf32 = True
         model.cuda().requires_grad_(False)
