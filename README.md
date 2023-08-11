@@ -20,5 +20,7 @@ source init_env.profile
 
 to run the pipeline
 ```
-screen -d -m -L -Logfile esmfold.log bash ~/project_install_ef2/iter_runs.sh
+cd ~
+rm iter_run_.log
+screen -d -m -L -Logfile iter_run_.log bash ~/project_install_ef2/iter_runs.sh
 ```

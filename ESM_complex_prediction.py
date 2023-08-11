@@ -77,13 +77,13 @@ def fix_sequence(jobname = "test",
         import torch
         model = torch.load("esmfold.model")
         # model = model.half()
-        model.esm = model.esm.half()
+        # model.esm = model.esm.half()
         torch.backends.cuda.matmul.allow_tf32 = True
         model.cuda().requires_grad_(False)
     
         # optimized for Tesla T4
         if length > 700:
-          model.trunk.set_chunk_size(32)
+          model.trunk.set_chunk_size(16)
         else:
           model.trunk.set_chunk_size(128)
     
